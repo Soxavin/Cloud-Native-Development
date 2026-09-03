@@ -1,10 +1,9 @@
 // STEP-1 : IMPORT MONGOOSE PACKAGE
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // Database Connection URL
-const uri = "mongodb+srv://Soxavin:REDACTED@cluster0.eocsayf.mongodb.net/?appName=Cluster0";
-//OR
-// const uri = "mongodb://Soxavin:REDACTED@ac-vypxlgw-shard-00-00.eocsayf.mongodb.net:27017,ac-vypxlgw-shard-00-01.eocsayf.mongodb.net:27017,ac-vypxlgw-shard-00-02.eocsayf.mongodb.net:27017/?ssl=true&replicaSet=atlas-fjlhth-shard-0&authSource=admin&appName=Cluster0";
+const uri = process.env.MONGODB_URI;
 
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 
