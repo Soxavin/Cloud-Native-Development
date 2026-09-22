@@ -56,3 +56,6 @@ app.use('/auth', forwardTo('http://localhost:5002'));
 app.use('/admin', authToken, authRole('admin'), forwardTo(process.env.ADMIN_SERVICE_URL));
 app.use('/user', authToken, authRole('user'), forwardTo(process.env.USER_SERVICE_URL));
 
+app.use((req, res) => res.status(404).json({ message: 'Route not found' }));
+
+app.listen(4000, () => console.log('API Gateway Service is running on PORT NO: 4000'));
